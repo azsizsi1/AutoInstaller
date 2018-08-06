@@ -16,6 +16,9 @@ namespace AutoInstaller
         {
             InitializeComponent();
         }
+//      Severity Code    Description Project File Line    Suppression State
+//Error CS0111  Type 'Form1' already defines a member called 'InitializeComponent' with the same parameter types AutoInstaller   C:\Users\azsizsi1\Desktop\közösapp\AutoInstaller\AutoInstaller\Form1.Designer.cs	29	N/A
+
 
         private void InitializeComponent()
         {
