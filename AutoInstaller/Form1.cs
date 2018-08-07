@@ -19,7 +19,8 @@ namespace AutoInstaller
         
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            /*Ide kéne megírni a beolvasást, hogy már a form betöltésénél legyen 
+             adat a ItemChooser-ben. Try-catch-ben mindenképp.*/
         }
     }
 }
