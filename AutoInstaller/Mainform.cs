@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace AutoInstaller
 {
-    public partial class Form1 : Form
+    public partial class Mainform : Form
     {
 
         public int CountOfPrograms = 0;   //ez lesz a cilkus számlálója az ellenörzésnél
         string[] location;   //egy szöveges útvonal ez majd a listába lesz
         string txtline = "";    //tomi írta :P
-        public Form1()
+        public Mainform()
         {
             InitializeComponent();
         }
@@ -60,15 +60,19 @@ namespace AutoInstaller
         }
 
 
-        public bool Showlist (int countofprograms)
+        public bool ListDisplay (int index)
         {
-            for (int i = 0; i < countofprograms; i++)
-            {
-                if (ItemChooser.CheckedItems)
+
+            if (ItemChooser.GetItemCheckState == CheckState.Checked)
                 {
 
+                    return true;
                 }
-            }
+                else
+                {
+                    return false;
+                }
+           
         }
     }
 
