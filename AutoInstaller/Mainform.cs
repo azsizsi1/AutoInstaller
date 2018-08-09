@@ -53,16 +53,16 @@ namespace AutoInstaller
         {
 
         }
-
+       
         public void ItemChooser_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
-
-        public bool ListDisplay (int index)
+        /*
+        public bool istDisplay (int index)
         {
-
+            
             if (ItemChooser.GetItemCheckState == CheckState.Checked)
                 {
 
@@ -71,11 +71,12 @@ namespace AutoInstaller
                 else
                 {
                     return false;
-                }
-           
+                }     
+                */   
         }
+       
     }
-
+    
 
     public class Tolt   //ez az a get-set dolog
     {
@@ -91,4 +92,4 @@ namespace AutoInstaller
         }
 
     }
-}
+
