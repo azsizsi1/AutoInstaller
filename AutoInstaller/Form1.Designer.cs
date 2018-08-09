@@ -45,6 +45,7 @@
             this.ItemChooser.ScrollAlwaysVisible = true;
             this.ItemChooser.Size = new System.Drawing.Size(570, 349);
             this.ItemChooser.TabIndex = 0;
+            this.ItemChooser.SelectedIndexChanged += new System.EventHandler(this.ItemChooser_SelectedIndexChanged);
             // 
             // ItemList
             // 
@@ -53,6 +54,7 @@
             this.ItemList.Name = "ItemList";
             this.ItemList.Size = new System.Drawing.Size(153, 316);
             this.ItemList.TabIndex = 1;
+            this.ItemList.SelectedIndexChanged += new System.EventHandler(this.ItemList_SelectedIndexChanged);
             // 
             // starter
             // 

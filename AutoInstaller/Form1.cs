@@ -15,9 +15,9 @@ namespace AutoInstaller
     public partial class Form1 : Form
     {
 
-        public int CountOfPrograms = 0;
-        string location;
-        string txtline = "";
+        public int CountOfPrograms = 0;   //ez lesz a cilkus számlálója az ellenörzésnél
+        string[] location;   //egy szöveges útvonal ez majd a listába lesz
+        string txtline = "";    //tomi írta :P
         public Form1()
         {
             InitializeComponent();
@@ -32,22 +32,48 @@ namespace AutoInstaller
                 {
                     string[] database = txtline.Split(';');
                     ItemChooser.Items.Add(new Tolt(database[0], database[1], database[2]));
-                    CountOfPrograms++;
+                    location[CountOfPrograms+1] = Convert.ToString(database[2]);
+                    CountOfPrograms++; 
                 }
                 route.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                throw;
             }
+
             /*Ide kéne megírni a beolvasást, hogy már a form betöltésénél legyen 
-             adat a ItemChooser-ben. Try-catch-ben mindenképp.*/
+             adat a ItemChooser-ben. Try-catch-ben mindenképpen */
+            
+
+            }
+
+        private void ItemList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ItemChooser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        public bool Showlist (int countofprograms)
+        {
+            for (int i = 0; i < countofprograms; i++)
+            {
+                if (ItemChooser.CheckedItems)
+                {
+
+                }
+            }
         }
     }
 
 
-
-    public class Tolt
+    public class Tolt   //ez az a get-set dolog
     {
         public string Name { get; set; }
         public string Version { get; set; }
