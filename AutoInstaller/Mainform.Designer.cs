@@ -1,4 +1,7 @@
-﻿namespace AutoInstaller
+﻿using System;
+using System.Windows.Forms;
+
+namespace AutoInstaller
 {
     partial class Mainform
     {
@@ -45,7 +48,7 @@
             this.ItemChooser.ScrollAlwaysVisible = true;
             this.ItemChooser.Size = new System.Drawing.Size(570, 349);
             this.ItemChooser.TabIndex = 0;
-            this.ItemChooser.SelectedIndexChanged += new System.EventHandler(this.ItemChooser_SelectedIndexChanged);
+            this.ItemChooser.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ItemChooser_ItemCheck);
             // 
             // ItemList
             // 
@@ -64,17 +67,33 @@
             this.starter.TabIndex = 2;
             this.starter.Text = "Install Item(s)";
             this.starter.UseVisualStyleBackColor = true;
+            this.starter.Click += new System.EventHandler(this.starter_Click);
             // 
-            // Form1
+            // Mainform
             // 
             this.ClientSize = new System.Drawing.Size(745, 373);
             this.Controls.Add(this.starter);
             this.Controls.Add(this.ItemList);
             this.Controls.Add(this.ItemChooser);
-            this.Name = "Form1";
+            this.Name = "Mainform";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
+        }
+        
+        private void ItemChooser_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (CheckState.Checked == ItemChooser.GetItemCheckState(e.Index))
+            {
+                ItemList.Items.Remove(ItemChooser.Items[e.Index].ToString());
+            }
+            else
+            {
+                ItemList.Items.Add(ItemChooser.Items[e.Index].ToString());
+            }
+
+
+            
         }
 
         #endregion

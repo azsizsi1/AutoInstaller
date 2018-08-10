@@ -22,7 +22,7 @@ namespace AutoInstaller
         {
             InitializeComponent();
         }
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
             try
@@ -32,8 +32,8 @@ namespace AutoInstaller
                 {
                     string[] database = txtline.Split(';');
                     ItemChooser.Items.Add(new Tolt(database[0], database[1], database[2]));
-                    location[CountOfPrograms+1] = Convert.ToString(database[2]);
-                    CountOfPrograms++; 
+                    location[CountOfPrograms + 1] = Convert.ToString(database[2]);
+                    CountOfPrograms++;
                 }
                 route.Close();
             }
@@ -45,38 +45,32 @@ namespace AutoInstaller
 
             /*Ide kéne megírni a beolvasást, hogy már a form betöltésénél legyen 
              adat a ItemChooser-ben. Try-catch-ben mindenképpen */
-            
-
-            }
+        }
 
         private void ItemList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-       
-        public void ItemChooser_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void starter_Click(object sender, EventArgs e)
         {
             
         }
-
-        /*
-        public bool istDisplay (int index)
-        {
-            
-            if (ItemChooser.GetItemCheckState == CheckState.Checked)
-                {
-
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }     
-                */   
-        }
-       
     }
-    
+    public class Locations
+    {
+        private string[] path;
+        public void LocationSaver(string location, int index)
+        {
+            path[index] = location;
+        }
+        public string LocationGiver(int index)
+        {
+            return path[index];
+        }
+    }
+        
+}   
 
     public class Tolt   //ez az a get-set dolog
     {
