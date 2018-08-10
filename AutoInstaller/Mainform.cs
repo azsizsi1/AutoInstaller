@@ -15,7 +15,7 @@ namespace AutoInstaller
     public partial class Mainform : Form
     {
 
-        public int countofprograms = 0;   //ez lesz a cilkus számlálója az ellenörzésnél
+        public int CountOfPrograms = 0;   //ez lesz a cilkus számlálója az ellenörzésnél
         string[] location;   //egy szöveges útvonal ez majd a listába lesz
         string txtline = "";    //tomi írta :P
         public Mainform()
@@ -32,8 +32,8 @@ namespace AutoInstaller
                 {
                     string[] database = txtline.Split(';');
                     ItemChooser.Items.Add(new Tolt(database[0], database[1], database[2]));
-                    location[countofprograms+1] = Convert.ToString(database[2]);
-                    countofprograms++; 
+                    location[CountOfPrograms+1] = Convert.ToString(database[2]);
+                    CountOfPrograms++; 
                 }
                 route.Close();
             }
@@ -53,29 +53,30 @@ namespace AutoInstaller
         {
 
         }
-
+       
         public void ItemChooser_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         /*
-        public bool ListDisplay(int index)
+        public bool istDisplay (int index)
         {
+            
+            if (ItemChooser.GetItemCheckState == CheckState.Checked)
+                {
 
-            if (CheckState ItemChooser.Items.IndexOf(index))
-            {
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-           
-        }*/
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }     
+                */   
+        }
+       
     }
-
+    
 
     public class Tolt   //ez az a get-set dolog
     {
@@ -91,4 +92,4 @@ namespace AutoInstaller
         }
 
     }
-}
+
