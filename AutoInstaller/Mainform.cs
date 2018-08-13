@@ -86,8 +86,15 @@ namespace AutoInstaller
                 Process.Start(locationblock[index]);
                 
             }*/
-            Process.Start(@"Z:\Alba\script_email\Outlook_profile_recreate.bat");
-
+            // ez kevésbé veszélyes teszt telepítő, mint az outlook : 3
+            try 
+	        {	        
+		        Process.Start(@"Z:\Alba\P-touch editor\pew51006us.exe");
+	        }
+	        catch (Exception e)
+	        {
+                MessageBox.Show(e.Message);
+	        }
         }
     }
 
