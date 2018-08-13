@@ -42,9 +42,7 @@ namespace AutoInstaller
                 MessageBox.Show(ex.Message);
                 throw;
             }
-
-            /*Ide kéne megírni a beolvasást, hogy már a form betöltésénél legyen 
-             adat a ItemChooser-ben. Try-catch-ben mindenképpen */
+            
         }
 
         private void ItemList_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,7 +84,17 @@ namespace AutoInstaller
                 Process.Start(locationblock[index]);
                 
             }*/
-            Process.Start(@"Z:\Alba\script_email\Outlook_profile_recreate.bat");
+            try
+            {
+                Process.Start(@"Z:\Alba\script_email\Outlook_profile_recreate.bat");
+                Process.WaitForExit();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
 
         }
     }
