@@ -27,7 +27,7 @@ namespace AutoInstaller
         {
             try
             {
-                StreamReader route = new StreamReader(@"C:\users\azsizsi1\desktop\közösapp\AutoInstaller\AutoInstaller\txt\installroutes.txt");
+                StreamReader route = new StreamReader(@"C:\Users\azsizsi1\Desktop\közösapp\AutoInstaller\AutoInstaller\txt\installroutes.txt");
                 while ((txtline = route.ReadLine()) != null)
                 {
                     string[] database = txtline.Split(';');
@@ -79,22 +79,22 @@ namespace AutoInstaller
         }
         public void installstarter()
         {
-            /*for (int i = 0; i < index; i++)
+            for (int i = 0; i < index; i++)
             {
-                Process.Start(locationblock[index]);
-                
-            }*/
             try
             {
-                Process.Start(@"");
-                Process.EnterDebugMode();
-                Process.WaitForExit();
+                Process install = new Process();
+                Process.Start(@"{0}",locationblock[index]);
+                install.WaitForExit();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
                 throw;
             }
+                
+            }
+            
             
 
         }
