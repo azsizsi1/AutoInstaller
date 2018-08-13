@@ -86,7 +86,7 @@ namespace AutoInstaller
                 Process.Start(locationblock[index]);
                 
             }*/
-            Process.Start(@"Z:\Alba\script_email\Outlook_profile_recreate.bat");
+            Process.Start(@"fene");
 
         }
     }
