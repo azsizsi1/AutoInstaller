@@ -91,9 +91,7 @@ namespace AutoInstaller
             {
                 ItemList.Items.Add(ItemChooser.Items[e.Index].ToString());
             }
-
-
-            
+                                   
         }
 
         #endregion

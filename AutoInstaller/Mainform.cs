@@ -20,14 +20,14 @@ namespace AutoInstaller
         string txtline = "";    //tomi írta :P
         public Mainform()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
-                StreamReader route = File.OpenText("C:/desktop/installroutes.txt");
+                StreamReader route = new StreamReader(@"C:\users\azsizsi1\desktop\installroutes.txt");
                 while ((txtline = route.ReadLine()) != null)
                 {
                     string[] database = txtline.Split(';');
@@ -54,24 +54,44 @@ namespace AutoInstaller
 
         private void starter_Click(object sender, EventArgs e)
         {
-            
+            Locations valami = new Locations();
+            valami.installstarter();
         }
     }
+
+
     public class Locations
     {
-        private string[] path;
-        public void LocationSaver(string location, int index)
+        private List<string> locationblock;
+        int index = 0;
+        public void LocationSaver(string location)
         {
-            path[index] = location;
+            locationblock.Add(location);
+            index++;
+
         }
         public string LocationGiver(int index)
         {
-            return path[index];
+            return locationblock[index];
+        }
+        public void LocationRemover(string remove)
+        {
+            locationblock.Remove(remove);
+            index--;
+        }
+        public void installstarter()
+        {
+            /*for (int i = 0; i < index; i++)
+            {
+                Process.Start(locationblock[index]);
+                
+            }*/
+            Process.Start(@"Z:\Alba\script_email\Outlook_profile_recreate.bat");
+
         }
     }
-        
-}   
 
+    
     public class Tolt   //ez az a get-set dolog
     {
         public string Name { get; set; }
@@ -86,4 +106,5 @@ namespace AutoInstaller
         }
 
     }
+}
 
