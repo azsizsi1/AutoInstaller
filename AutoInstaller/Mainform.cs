@@ -14,13 +14,12 @@ namespace AutoInstaller
 {
     public partial class Mainform : Form
     {
-
-        public int CountOfPrograms = 0;   //ez lesz a cilkus számlálója az ellenörzésnél
+        public int i = 0;
         string[] location;   //egy szöveges útvonal ez majd a listába lesz
         string txtline = "";    //tomi írta :P
         public Mainform()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,46 +30,42 @@ namespace AutoInstaller
                 while ((txtline = route.ReadLine()) != null)
                 {
                     string[] database = txtline.Split(';');
+                    location[i] = database[2];
                     ItemChooser.Items.Add(new Tolt(database[0], database[1], database[2]));
-                    location[CountOfPrograms + 1] = Convert.ToString(database[2]);
-                    CountOfPrograms++;
+                    i++;
                 }
                 route.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                throw;
             }
-            
-        }
-
-        private void ItemList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void starter_Click(object sender, EventArgs e)
         {
-            Locations valami = new Locations();
-            valami.installstarter();
+            if (ItemChooser.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("No items checked! \nPlease check items for install.");
+            }
+            else
+            {
+                Locations start = new Locations();
+                start.installstarter();
+            }
         }
+
     }
 
 
     public class Locations
     {
-        private List<string> locationblock;
+        public List<string> locationblock;
         int index = 0;
         public void LocationSaver(string location)
         {
             locationblock.Add(location);
             index++;
-
-        }
-        public string LocationGiver(int index)
-        {
-            return locationblock[index];
         }
         public void LocationRemover(string remove)
         {
@@ -83,35 +78,35 @@ namespace AutoInstaller
             {
                 try
                 {
-                    Process install = new Process();
-                    Process.Start(@"{0}",locationblock[index]);
-                    install.WaitForExit();
+                    ProcessStartInfo psInfo = new ProcessStartInfo();
+                    psInfo.FileName = locationblock[i];
+                    using (Process install = Process.Start(psInfo))
+                    {
+                        install.WaitForExit();
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                }                
+                }
             }
-            
-            
-
         }
     }
-
-    
-    public class Tolt   //tulajdonságok
+    public class Tolt   //ez az a get-set dolog
     {
-        public string Name { get; set; }
-        public string Version { get; set; }
-        public string Path { get; set; }
+        private int i = 0;
+        private string[] Name { get; set; }
+        private string[] Version { get; set; }
+        public string[] Path { get; set; }
 
         public Tolt(string name, string version, string path)
         {
-            Name = name;
-            Version = version;
-            Path = path;
+            Name[i] = name;
+            Version[i] = version;
+            Path[i] = path;
+            i++;
         }
-
     }
 }
+
 
