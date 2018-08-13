@@ -81,18 +81,16 @@ namespace AutoInstaller
         {
             for (int i = 0; i < index; i++)
             {
-            try
-            {
-                Process install = new Process();
-                Process.Start(@"{0}",locationblock[index]);
-                install.WaitForExit();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                throw;
-            }
-                
+                try
+                {
+                    Process install = new Process();
+                    Process.Start(@"{0}",locationblock[index]);
+                    install.WaitForExit();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }                
             }
             
             

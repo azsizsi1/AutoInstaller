@@ -40,9 +40,7 @@ namespace AutoInstaller
             // 
             this.ItemChooser.FormattingEnabled = true;
             this.ItemChooser.Items.AddRange(new object[] {
-            "Outlook",
-            "Directx",
-            "Appshare"});
+            ""});
             this.ItemChooser.Location = new System.Drawing.Point(13, 13);
             this.ItemChooser.Name = "ItemChooser";
             this.ItemChooser.ScrollAlwaysVisible = true;
