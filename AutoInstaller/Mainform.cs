@@ -27,7 +27,7 @@ namespace AutoInstaller
         {
             try
             {
-                StreamReader route = new StreamReader(@"C:\users\azsizsi1\desktop\installroutes.txt");
+                StreamReader route = new StreamReader(@"C:\users\azsizsi1\desktop\közösapp\AutoInstaller\AutoInstaller\txt\installroutes.txt");
                 while ((txtline = route.ReadLine()) != null)
                 {
                     string[] database = txtline.Split(';');
@@ -86,7 +86,8 @@ namespace AutoInstaller
             }*/
             try
             {
-                Process.Start(@"Z:\Alba\script_email\Outlook_profile_recreate.bat");
+                Process.Start(@"");
+                Process.EnterDebugMode();
                 Process.WaitForExit();
             }
             catch (Exception)
