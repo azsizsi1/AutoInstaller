@@ -55,7 +55,6 @@ namespace AutoInstaller
             this.ItemList.Name = "ItemList";
             this.ItemList.Size = new System.Drawing.Size(153, 316);
             this.ItemList.TabIndex = 1;
-            this.ItemList.SelectedIndexChanged += new System.EventHandler(this.ItemList_SelectedIndexChanged);
             // 
             // starter
             // 
@@ -84,19 +83,22 @@ namespace AutoInstaller
             if (CheckState.Checked == ItemChooser.GetItemCheckState(e.Index))
             {
                 ItemList.Items.Remove(ItemChooser.Items[e.Index].ToString());
+                Locations delete = new Locations();
+                delete.LocationRemover(ItemChooser.Items[e.Index].ToString());
             }
             else
             {
                 ItemList.Items.Add(ItemChooser.Items[e.Index].ToString());
+                Locations fill = new Locations();
+                fill.LocationSaver(ItemChooser.Items[e.Index].ToString());
             }
-                                   
         }
 
         #endregion
 
-        private System.Windows.Forms.CheckedListBox ItemChooser;
-        private System.Windows.Forms.ListBox ItemList;
-        private System.Windows.Forms.Button starter;
+        public System.Windows.Forms.CheckedListBox ItemChooser;
+        public System.Windows.Forms.ListBox ItemList;
+        public System.Windows.Forms.Button starter;
     }
 }
 
