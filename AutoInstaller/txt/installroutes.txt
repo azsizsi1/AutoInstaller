@@ -1,3 +1,4 @@
+PdfConverter; asd;C:\Users\frudnic3\Desktop\dopdf-7.exe
 Outlook;not available;Z:\Alba\script_email\Outlook_profile_recreate.bat
 Directx;not available;Z:\Alba\DirectX\dwebsetup.exe
 Appshare;10.50.0.125;Z:\Alba\AppShare_10.1\Appshare_install.bat

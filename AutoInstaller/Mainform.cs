@@ -27,7 +27,7 @@ namespace AutoInstaller
         {
             try
             {
-                StreamReader route = new StreamReader(@"C:\Users\azsizsi1\Desktop\közösapp\AutoInstaller\AutoInstaller\txt\installroutes.txt");
+                StreamReader route = new StreamReader("txt\\installroutes.txt");
                 while ((txtline = route.ReadLine()) != null)
                 {
                     string[] database = txtline.Split(';');
@@ -99,7 +99,7 @@ namespace AutoInstaller
     }
 
     
-    public class Tolt   //ez az a get-set dolog
+    public class Tolt   //tulajdonságok
     {
         public string Name { get; set; }
         public string Version { get; set; }
