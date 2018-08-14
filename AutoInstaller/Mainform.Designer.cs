@@ -39,8 +39,6 @@ namespace AutoInstaller
             // ItemChooser
             // 
             this.ItemChooser.FormattingEnabled = true;
-            this.ItemChooser.Items.AddRange(new object[] {
-            ""});
             this.ItemChooser.Location = new System.Drawing.Point(13, 13);
             this.ItemChooser.Name = "ItemChooser";
             this.ItemChooser.ScrollAlwaysVisible = true;
@@ -77,22 +75,7 @@ namespace AutoInstaller
             this.ResumeLayout(false);
 
         }
-        
-        private void ItemChooser_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            if (CheckState.Checked == ItemChooser.GetItemCheckState(e.Index))
-            {
-                ItemList.Items.Remove(ItemChooser.Items[e.Index].ToString());
-                Locations delete = new Locations();
-                delete.LocationRemover(ItemChooser.Items[e.Index].ToString());
-            }
-            else
-            {
-                ItemList.Items.Add(ItemChooser.Items[e.Index].ToString());
-                Locations fill = new Locations();
-                fill.LocationSaver(ItemChooser.Items[e.Index].ToString());
-            }
-        }
+
 
         #endregion
 
