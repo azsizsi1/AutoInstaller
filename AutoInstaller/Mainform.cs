@@ -27,7 +27,7 @@ namespace AutoInstaller
 
             try
             {
-                StreamReader route = new StreamReader(@"C:\Users\azsizsi1\Desktop\közösapp\AutoInstaller\AutoInstaller\txt\installroutes.txt");
+                StreamReader route = new StreamReader(@"C:\Users\frudnic3\source\repos\AutoInstallerMain\AutoInstaller\txt\installroutes.txt");
                 while ((txtline = route.ReadLine()) != null)
                 {
                     string[] database = txtline.Split(';');
@@ -86,6 +86,11 @@ namespace AutoInstaller
             {
                 ItemList.Items.Add((ItemChooser.Items[e.Index] as Tolt).Name);
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

@@ -1,0 +1,8 @@
+Outlook;Not Available;Z:\Alba\script_email\Outlook_profile_recreate.bat
+Directx;Not Available;Z:\Alba\DirectX\dxwebsetup.exe
+Appshare;10.50.0.125;Z:\Alba\AppShare_10.1\Appshare_install.bat
+LogAn;3.0.2.5;Z:\Alba\LogAn\LogAn_NEW\LogAn.exe
+Office 2010;14.0.7015.1000;Z:\Alba\office2010\officesp2010-kb2687455-fullfile-x86-en-us.exe
+VLC32bit;1.0.5;Z:\Alba\VLC\vlc-1.0.5-win32.exe
+VLC64bit ver:2.2.4;2.2.4;Z:\Alba\VLC\vlc-2.2.4-win64.exe
+VLC64bit ver:3.0.2;3.0.2;Z:\Alba\VLC\vlc-3.0.2-win64.exe
