@@ -14,15 +14,14 @@ namespace AutoInstaller
 {
     public partial class Mainform : Form
     {
-        //string[] location;
-        List<string> locationblock = new List<string>();
-        int index = 0;
         string txtline = "";
+        public List<Tolt> lstTolt = new List<Tolt>();
+
         public Mainform()
         {
             InitializeComponent();
         }
-        public List<Tolt> lstTolt = new List<Tolt>();
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -38,7 +37,6 @@ namespace AutoInstaller
                 route.Close();
                 ItemChooser.DataSource = lstTolt;
                 ItemChooser.DisplayMember = "Name";
-                //MessageBox.Show((ItemChooser.Items[] as Tolt).Path);
             }
             catch (Exception ex)
             {
@@ -54,28 +52,18 @@ namespace AutoInstaller
             }
             else
             {
-                installstarter();
+                Installstarter();
             }
         }
-
-        public void LocationSaver(string location)
+        
+        private void Installstarter()
         {
-            locationblock.Add(location);
-            index++;
-        }
-        public void LocationRemover(string remove)
-        {
-            locationblock.Remove(remove);
-            index--;
-        }
-        public void installstarter()
-        {
-            for (int i = 0; i < index; i++)
+            for (int i = 0; i < ItemChooser.CheckedItems.Count; i++)
             {
                 try
                 {
                     ProcessStartInfo psInfo = new ProcessStartInfo();
-                    psInfo.FileName = locationblock[i];
+                    psInfo.FileName = (ItemChooser.CheckedItems[i] as Tolt).Path; // locationblock[i];
                     using (Process install = Process.Start(psInfo))
                     {
                         install.WaitForExit();
@@ -90,15 +78,13 @@ namespace AutoInstaller
 
         private void ItemChooser_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            if (CheckState.Checked == ItemChooser.GetItemCheckState(e.Index))
+            if (ItemChooser.GetItemCheckState(e.Index) == CheckState.Checked)
             {
                 ItemList.Items.Remove((ItemChooser.Items[e.Index] as Tolt).Name);
-                LocationRemover((ItemChooser.Items[e.Index] as Tolt).Path);
             }
             else
             {
                 ItemList.Items.Add((ItemChooser.Items[e.Index] as Tolt).Name);
-                LocationSaver((ItemChooser.Items[e.Index] as Tolt).Path);
             }
         }
     }
